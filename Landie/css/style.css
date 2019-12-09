@@ -15,6 +15,8 @@ body{
     margin: 0 auto;
     padding-left: 15px;
     padding-right: 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 .row {
@@ -158,7 +160,7 @@ body{
     font-weight: 750;
     font-size: 12px;
     text-align: center;
-    padding: 0.5em 2.5em;
+    padding: 0.5em 1.25em;
 }
 
 .img_contain{
@@ -172,8 +174,15 @@ body{
     background-image: url('designer_1.png');
 }
 
-.second{
+article{
+    margin: unset;
+}
+
+.second_pg{
     background-image: url('u.jpg');
+    background-position: right;
+    
+    background-repeat: no-repeat;
 }
 
 /*
@@ -237,19 +246,10 @@ a{
     display: flex;
 }
 
-.left-content > h2{
+h2{
     font-style: normal;
     font-weight: 500;
     font-size: 50px;
-    line-height: 66px;
-    letter-spacing: 1px;
-    color: #091133;
-}
-
-.left-content > h3{
-    font-style: normal;
-    font-weight: 500;
-    font-size: 40px;
     line-height: 66px;
     letter-spacing: 1px;
     color: #091133;
@@ -285,4 +285,90 @@ a{
     color: #111B47;
     text-align: center;
     
+}
+
+.happy-container{
+    padding-bottom: 5rem;
+}
+
+.happy-container .image{
+    background-image: url('undraw_happy_news_hxmt.jpg');
+    background-repeat: no-repeat;
+    background-position: bottom;
+}
+
+.social-container .image{
+    background-image: url('undraw_social_influencer_sgsv.jpg');
+    background-repeat: no-repeat;
+    background-position: bottom;
+}
+
+.mention-container .image{
+    background-image: url('undraw_mention_6k5d.jpg');
+    background-repeat: no-repeat;
+    background-position: bottom;
+}
+
+article{
+    flex: 1;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 30px;
+    color: #505F98;
+}
+
+.offer-container{
+    text-align: center;
+    margin: 0 auto;
+}
+
+.price{
+    padding-top: 2.5rem;
+    padding-bottom: 4rem;
+}
+
+.outro-container{
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+}
+
+footer{
+    padding: 5.0rem 0;
+    background-color: #E7ECFF;
+}
+
+.foot-start{
+    padding-bottom: 2.5rem;
+}
+
+.foot-end{
+    padding-top: 2.5rem;
+}
+
+.foot_copyright{
+    display: flex;
+    justify-content: flex-start;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 30px;
+    color: #505F98;
+}
+
+.foot_title{
+    display: flex;
+    justify-content: space-around;
+    /* width: 16%; */
+    font-style: normal;
+    font-weight: 900;
+    font-size: 26px;
+    line-height: 25px;
+    color: #37447E;
+
+}
+
+.foot_button{
+    display: flex;
+    justify-content: flex-end;
 }
