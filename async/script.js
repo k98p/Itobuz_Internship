@@ -6,9 +6,7 @@ fetch('https://jsonplaceholder.typicode.com/posts')
 		let items = "";
 		for(let i=0; i<res.length; ++i){
 			listarr.push(res[i].id)
-			items += `<input type='checkbox' id="checkbox_${res[i].id}" onclick='check_func("${res[i].id}")'>
-							<span id="text_${res[i].id}">${res[i].title}</span>
-					  </input><br>`
+			items += `<input type='checkbox' id="checkbox_${res[i].id}" onclick='check_func("${res[i].id}")'><span id="text_${res[i].id}">${res[i].title}</span></input><br>`
 		}
 		document.getElementById("listdiv").innerHTML = items;
 		test = res 		//doesn't work. Why?
