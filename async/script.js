@@ -9,6 +9,7 @@ fetch('https://jsonplaceholder.typicode.com/posts')
 			items += `<input type='checkbox' id="checkbox_${res[i].id}" onclick='check_func("${res[i].id}")'><span id="text_${res[i].id}">${res[i].title}</span></input><br>`
 		}
 		document.getElementById("listdiv").innerHTML = items;
+		console.log(res)
 		test = res 		//doesn't work. Why?
 		return res
   	})
@@ -19,12 +20,35 @@ function check_func(n){
 	var checkboxele = document.getElementById(checkid)
 	var textele = document.getElementById(textid)
 	fetch_url = 'https://jsonplaceholder.typicode.com/posts/' + n
-	fetch(fetch_url).then(response => {
-		if (checkboxele.checked===true){
+	if (checkboxele.checked===true){
+		fetch(fetch_url,{
+			method: 'PUT',
+			headers: {
+				"Content-type": "application/json; charset=UTF-8"
+			},
+			body: JSON.stringify({
+				completed: true
+			})
+		}).then(response=>{
 			textele.setAttribute("style" , "text-decoration: line-through;");
-		}
-		else{
-			textele.setAttribute("style" , "text-decoration: 'none';");
-		}
-	})
+			return response.json()
+		}).then(data=>console.log(data))
+	}
+	else{
+		fetch(fetch_url,{
+			method: 'PUT',
+			headers: {
+				"Content-type": "application/json; charset=UTF-8"
+			},
+			body: JSON.stringify({
+				completed: false
+			})
+		}).then(response=>{
+			textele.setAttribute("style" , "text-decoration: none;");
+			return response.json()	
+		}).then(data=>{
+			console.log(data);
+		})
+	}
+	
 }
