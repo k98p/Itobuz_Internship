@@ -1,6 +1,6 @@
 var test;
 var listarr = [];
-fetch('https://jsonplaceholder.typicode.com/posts')
+fetch('https://jsonplaceholder.typicode.com/todos')
 	.then(response => response.json())
 	.then(res => {
 		let items = "";
@@ -19,7 +19,7 @@ function check_func(n){
 	var textid = "text_"+n;
 	var checkboxele = document.getElementById(checkid)
 	var textele = document.getElementById(textid)
-	fetch_url = 'https://jsonplaceholder.typicode.com/posts/' + n
+	fetch_url = 'https://jsonplaceholder.typicode.com/todos/' + n
 	if (checkboxele.checked===true){
 		fetch(fetch_url,{
 			method: 'PUT',
