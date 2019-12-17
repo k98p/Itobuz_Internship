@@ -73,7 +73,11 @@ function add_func(frm){
 			}
 		}).then(response=>response.json())
 		//<input type='checkbox' id="checkbox_${res[i].id}" name="checkbox_${res[i].id}" onclick='check_func("${res[i].id}")'><label for="checkbox_${res[i].id}" id="text_${res[i].id}">${res[i].title}</label></input><br>
-		  .then(data=>docu_list.innerHTML += `<div class="container border border-primary mx-auto py-1 rounded-pill"><input type='checkbox' id="checkbox_${data.id}" name="checkbox_${data.id}" onclick='check_func("${data.id}")'><label for="checkbox_${data.id}" id="text_${data.id}">${data.title}</label></input><br></div>`)
+		  .then(data=>docu_list.innerHTML += `<label class="container border border-primary mx-auto py-2 rounded-pill" for="checkbox_${data.id}">
+												  <input type='checkbox' id="checkbox_${data.id}" name="checkbox_${data.id}" onclick='check_func("${data.id}")'>
+														  <span id="text_${data.id}">${data.title}</span>
+													</input>
+											</label>`)
 	
 		}
 }
