@@ -5,6 +5,7 @@ let fetch_url = 'https://jsonplaceholder.typicode.com/posts/' + id;
 let comments_url = 'https://jsonplaceholder.typicode.com/comments?postId=' + id
 //console.log(fetch_url);
 
+/*
 const fetch_arr = [fetch(fetch_url), fetch(comments_url)]
 Promise.all(fetch_arr)
     .then(res=>res.json())
@@ -20,8 +21,8 @@ Promise.all(fetch_arr)
             //contain_comment.innerHTML+= '</div>'
         }
     })
+*/
 
-/*
 var contain = document.getElementsByClassName("post-container")[0];
 fetch(fetch_url)
     .then(response => response.json())
@@ -42,4 +43,3 @@ fetch(comments_url)
             //contain_comment.innerHTML+= '</div>'
         }
     })
-*/
