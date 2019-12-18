@@ -1,5 +1,6 @@
 var express = require('express');
 var app = express();
+var cors = require('cors')
 
 var fs = require('fs')
 var _ = require('lodash')
@@ -28,10 +29,13 @@ app.set('views', './views')
 app.set('view engine', 'hbs')
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json());
+app.use(cors());
 //app.use('/profilepics', express.static('images'))
 
 app.post('/todos/', (req,res)=>{
 	var newtodo = req.body;
+	console.log(newtodo)
+	newtodo["id"]=todos.length+1
 	todos.push(newtodo);
 	const jsonstring = JSON.stringify(todos)
 	fs.writeFile('./update.json', jsonstring, err=>{
@@ -43,7 +47,8 @@ app.post('/todos/', (req,res)=>{
 		}
 	})
 	//console.log(todos[newtodo.id]);
-	res.send("Post successful:\n"+JSON.stringify(newtodo, null, 4));
+	//JSON.stringify(newtodo, null, 4)
+	res.json(newtodo);
 })
 
 app.get('/todos/', (req,res)=>{
@@ -81,12 +86,15 @@ app.put('/todos/:id', bodyParser.json(), (req,res)=>{
 	//console.log(req.body)
 	var id = req.params.id
 	var updatetodo = req.body
+	console.log(updatetodo)
 	var index;
 	//console.log(todos.length)
 	for(var i=0; i<todos.length; ++i){
 		if(todos[i]!=null && todos[i]["id"]==id){
 			index=i
-			//console.log(index)
+			updatetodo["id"]=todos[i]["id"]
+			updatetodo["title"]=todos[i]["title"]
+			updatetodo["userId"]=todos[i]["userId"]
 			break
 		}
 	}
@@ -109,7 +117,6 @@ app.put('/todos/:id', bodyParser.json(), (req,res)=>{
 			}
 		})
 		console.log("--->Update Successful. Todo details: \n" + JSON.stringify(updatetodo, null, 4))
-
 		res.send(JSON.stringify(updatetodo,null,4))
 	}
 })
