@@ -20,7 +20,7 @@
     "handlebars": "^3.0.3",
     "jade": "^1.11.0",
     "jsonwebtoken": "^8.5.1",
-    "lodash": "^3.10.0",
+    "lodash": "^4.17.21",
     "mongoose": "^5.8.1",
     "update-json-file": "^1.1.1",
     "write-json-file": "^4.2.1"
